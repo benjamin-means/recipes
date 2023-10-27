@@ -32,6 +32,8 @@ type Recipe {
   ingredients: [Ingredient]
   "A list of recipes that is related to this particular one, for discoverability"
   relatedRecipes: [Recipe]
+  "List of cookware used in the recipe"
+  cookware: [Cookware]
 }
 
 type Ingredient {
@@ -46,4 +48,8 @@ type Ingredient {
   For example: 1 cup onions, medium diced
   """
   detailedDescription: String
+}
+
+type Cookware @key(fields: "name", resolvable: false) {
+  name: String!
 }
